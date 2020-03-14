@@ -1,35 +1,26 @@
 <template>
     <v-container fluid>
-        <v-layout>
-            <h1 @click="change">{{ show }}</h1>
-            <h2 v-if="show">jajaja</h2>
-        </v-layout>
+        <modaltest v-if="detail"></modaltest>
+        <searchcontent></searchcontent>
     </v-container>
 </template>
 
-
 <script>
-
-
+import modaltest from '@/components/modaltest';
+import searchcontent from '@/components/searchcontent';
 export default {
-    name: 'Search',
-    Components: {
-
+    name: 'Watchlist',
+    components: {
+        modaltest,
+        searchcontent
     },
-    computed: {
-        show(){
+    computed : {
+        detail(){
             return this.$store.state.showmodal
         }
     },
-    methods: {
-        change(){
-            this.$store.dispatch('hidemodal');
-        }
-    }
 };
 </script>
-
-
 
 <style scoped>
 </style>

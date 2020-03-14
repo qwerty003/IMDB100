@@ -20,6 +20,9 @@ Vuex.Store({
         },
         watchlistmovies: (state) => {
             return state.movies.filter(movie => movie.watch==true)
+        },
+        searchresults: (state) => (str) => {
+            return state.movies.filter(movie => movie.title.includes(str))
         }
     },
     mutations: {
