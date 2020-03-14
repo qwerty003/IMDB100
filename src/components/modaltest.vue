@@ -1,30 +1,23 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="dialog" persistent min-width="700" max-width="800">
+    <v-dialog v-model="dialog" persistent min-width="800" max-width="900">
       <v-card @click="hide"
       class="mx-auto"
       min-width="800"
       >
         <v-img
           class="white--text align-end"
-          height="300px"
-          src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+          height="450px"
+          :src="'http://image.tmdb.org/t/p/w500/'+movie.poster_path">
         >
           <v-card-title>{{movie.title}}</v-card-title>
         </v-img>
 
-        <v-card-subtitle class="pb-0">Number 10</v-card-subtitle>
+        <v-card-subtitle class="pb-0">{{movie.vote_average}}</v-card-subtitle>
 
         <v-card-text class="text--primary" height="400px">
-          <div>Whitehaven Beach</div>
-          <div>Whitehaven Beach</div>
           <hr>
-          <div>Whitehaven Beach</div>
-          <div>Whitehaven Beach</div>
-          <div>Whitehaven Beach</div>
-          <div>Whitehaven Beach</div>
-          <div>Whitehaven Beach</div>
-          <div>Whitehaven Beach</div>
+          <div>{{movie.overview}}</div>
         </v-card-text>
 
         <v-card-actions>

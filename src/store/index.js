@@ -22,7 +22,7 @@ Vuex.Store({
             return state.movies.filter(movie => movie.watch==true)
         },
         searchresults: (state) => (str) => {
-            return state.movies.filter(movie => movie.title.includes(str))
+            return state.movies.filter(movie => movie.title.toLowerCase().includes(str.toLowerCase()))
         }
     },
     mutations: {

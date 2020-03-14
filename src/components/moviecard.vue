@@ -28,7 +28,7 @@
                 size="125"
                 tile
               >
-                <v-img :src="'https://cdn.vuetifyjs.com/images/cards/foster.jpg'"></v-img>
+                <v-img :src="'http://image.tmdb.org/t/p/w500/'+imagesrc"></v-img>
               </v-avatar>
             </div>
           </v-card>
@@ -41,7 +41,7 @@
 <script>
 export default {
     name: 'moviecard',
-    props:['id','title','rating','release','votes','watchlist'],
+    props:['id','title','rating','release','votes','watchlist','imagesrc'],
      data () {
     return {
         movieid: this.$props.id,
