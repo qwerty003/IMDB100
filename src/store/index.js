@@ -23,7 +23,10 @@ Vuex.Store({
         },
         searchresults: (state) => (str) => {
             return state.movies.filter(movie => movie.title.toLowerCase().includes(str.toLowerCase()))
-        }
+        },
+        modalstatus: (state) => {
+            return state.showmodal
+        },
     },
     mutations: {
         setmovies(state) {

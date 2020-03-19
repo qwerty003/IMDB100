@@ -9,7 +9,6 @@
           class="white--text align-end"
           height="450px"
           :src="'http://image.tmdb.org/t/p/w500/'+movie.poster_path">
-        >
           <v-card-title>{{movie.title}}</v-card-title>
         </v-img>
 
@@ -21,12 +20,14 @@
         </v-card-text>
 
         <v-card-actions>
-          <v-btn
-            color="orange"
-            text
-          >
-            <v-icon v-on:click.stop="">mdi-heart</v-icon>
-          </v-btn>
+          <div v-on:click.stop="changewatchstatus()">
+            <v-btn v-if="watchlisted()" icon color="orange">
+              <v-icon>mdi-heart</v-icon>
+            </v-btn>
+            <v-btn v-else icon disabled>
+              <v-icon >mdi-heart</v-icon>
+            </v-btn>
+          </div>
 
           <v-btn
             color="orange"
@@ -46,7 +47,7 @@
     name: 'modaltest',
     data () {
       return {
-        dialog:true,
+        dialog:() => {return  this.$store.getters.modalstatus},
       }
     },
     computed : {
@@ -57,6 +58,12 @@
     methods: {
         hide(){
             this.$store.dispatch('hidemodal');
+        },
+        watchlisted(){
+          return this.$store.getters.watchstatus(this.movie.id)
+        },
+        changewatchstatus(){
+          this.$store.commit('changewatch', this.movie.id);
         }
     },
   }
