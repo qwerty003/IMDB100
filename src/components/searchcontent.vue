@@ -10,8 +10,8 @@
             single-line
         ></v-text-field>
 
-        <v-btn icon color="purple">
-            <v-icon>mdi-cached</v-icon>
+        <v-btn icon color="black">
+            <v-icon>mdi-magnify</v-icon>
         </v-btn>
         </v-toolbar>
         </div>
